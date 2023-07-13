@@ -29,7 +29,7 @@ export default ProgressBar;
 
 const Count = styled.h1`
   font-size: 2.6rem;
-  margin-top: -18px;
+  margin-top: -1.125rem;
   font-weight: 900;
   font-style: italic;
   span {
