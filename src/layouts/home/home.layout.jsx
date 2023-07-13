@@ -19,7 +19,7 @@ const Home = () => {
         <UpraisedLogo />
         <Title />
         <Button name={"startBtn"} type={"button"} onClick={handleStartQuiz}>
-          START QUIZ
+          Start quiz
         </Button>
       </RightContainer>
     </HomeContainer>

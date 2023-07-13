@@ -25,7 +25,7 @@ const Result = () => {
           <ResultCard count={2} />
         </ResultCardContainer>
         <BtnContainer>
-          <Button type={"button"} onClick={handleStartAgain}>
+          <Button type={"button"} hasIcon={false} onClick={handleStartAgain}>
             Start again
           </Button>
         </BtnContainer>

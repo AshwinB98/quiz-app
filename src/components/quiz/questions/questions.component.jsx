@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../atoms/common/button";
 import Choice from "../../../atoms/quiz/choice";
@@ -18,8 +18,11 @@ const Questions = () => {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isChoiceSelected, setIsChoiceSelected] = useState("");
+  const isLastQuestion = useMemo(() => {
+    return currentQuestion === QUIZ.length - 1;
+  }, [currentQuestion]);
   const handleNextQuestion = () => {
-    if (currentQuestion === QUIZ.length - 1) {
+    if (isLastQuestion) {
       return navigate("/result");
     }
     setCurrentQuestion((prev) => prev + 1);
@@ -57,8 +60,9 @@ const Questions = () => {
             type={"button"}
             disabled={!isChoiceSelected}
             onClick={handleNextQuestion}
+            hasIcon={!isLastQuestion}
           >
-            {currentQuestion === QUIZ.length - 1 ? "Finish" : "Next"}
+            {isLastQuestion ? "Finish" : "Next"}
           </Button>
         </BtnContainer>
       </QuizContainer>

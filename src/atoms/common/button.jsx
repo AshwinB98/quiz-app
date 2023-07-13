@@ -1,9 +1,29 @@
 import { styled } from "styled-components";
+import { ReactComponent as RightArrow } from "../../assets/common/double-arrow-right.svg";
+import { Box, Flexbox } from "./box";
 
-const Button = ({ children, type, name, disabled, onClick }) => {
+const Button = ({
+  children,
+  type,
+  name,
+  disabled,
+  onClick,
+  hasIcon = false,
+}) => {
   return (
     <StyledButton onClick={onClick} disabled={disabled} name={name} type={type}>
-      {children}
+      <BtnText $hasIcon={hasIcon}>
+        <Box />
+        {children}
+        {hasIcon && (
+          <RightArrow
+            height={"1.5rem"}
+            width={"1.5rem"}
+            stroke="#ffffff"
+            fill="#ffffff"
+          />
+        )}
+      </BtnText>
     </StyledButton>
   );
 };
@@ -17,9 +37,15 @@ export const StyledButton = styled.button`
   color: white;
   font-weight: bold;
   border-radius: 1.625rem;
+  font-size: 1rem;
   cursor: pointer;
   &:disabled {
     background-color: rgba(171, 172, 174, 0.7);
     cursor: not-allowed;
   }
+`;
+
+const BtnText = styled(Flexbox)`
+  justify-content: ${({ $hasIcon }) => ($hasIcon ? "space-between" : "center")};
+  align-items: center;
 `;
