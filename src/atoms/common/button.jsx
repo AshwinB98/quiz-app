@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
-const Button = ({ children, type, name, disabled }) => {
+const Button = ({ children, type, name, disabled, onClick }) => {
   return (
-    <StyledButton disabled={disabled} name={name} type={type}>
+    <StyledButton onClick={onClick} disabled={disabled} name={name} type={type}>
       {children}
     </StyledButton>
   );
@@ -10,7 +10,7 @@ const Button = ({ children, type, name, disabled }) => {
 
 export default Button;
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   padding: 1rem;
   border: 0;
   background-color: rgb(255, 117, 4);
