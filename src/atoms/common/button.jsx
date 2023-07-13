@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const Button = ({ children, type, name, disabled }) => {
   return (
-    <StyledButton disabled name={name} type={type}>
+    <StyledButton disabled={disabled} name={name} type={type}>
       {children}
     </StyledButton>
   );
