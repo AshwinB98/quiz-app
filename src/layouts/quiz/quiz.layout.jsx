@@ -1,5 +1,11 @@
+import { OuterContainer } from "./quiz.style";
+
 const Quiz = () => {
-  return <p>Quiz Page</p>;
+  return (
+    <OuterContainer>
+      <p>quiz</p>
+    </OuterContainer>
+  );
 };
 
 export default Quiz;

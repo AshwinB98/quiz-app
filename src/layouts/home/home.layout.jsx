@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { ReactComponent as UpraisedLogo } from "../../assets/home/upraised-logo.svg";
 import Button from "../../atoms/common/button";
 import Title from "../../components/home/title/title.component";
 import { HomeContainer, LeftContainer, RightContainer } from "./home.style";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleStartQuiz = () => {
+    navigate("/quiz");
+  };
   return (
     <HomeContainer>
       <LeftContainer>
@@ -13,7 +18,7 @@ const Home = () => {
       <RightContainer>
         <UpraisedLogo />
         <Title />
-        <Button name={"startBtn"} type={"button"}>
+        <Button name={"startBtn"} type={"button"} onClick={handleStartQuiz}>
           START QUIZ
         </Button>
       </RightContainer>

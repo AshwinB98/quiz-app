@@ -1,5 +1,11 @@
+import { OuterContainer } from "../quiz/quiz.style";
+
 const Result = () => {
-  return <p>Result page</p>;
+  return (
+    <OuterContainer>
+      <p>result</p>
+    </OuterContainer>
+  );
 };
 
 export default Result;
