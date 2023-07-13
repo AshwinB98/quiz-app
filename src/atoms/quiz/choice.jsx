@@ -2,9 +2,9 @@ import { styled } from "styled-components";
 import { ReactComponent as Checkmark } from "../../assets/common/check-outline.svg";
 import { Flexbox } from "../common/box";
 
-const Choice = ({ choice, isSelected }) => {
+const Choice = ({ choice, isSelected, onClick }) => {
   return (
-    <ChoiceContainer $isSelected={isSelected}>
+    <ChoiceContainer $isSelected={isSelected} onClick={onClick}>
       <Checkmark height={"1.25rem"} width={"1.25rem"} />
       <p>{choice}</p>
     </ChoiceContainer>

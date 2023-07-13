@@ -1,14 +1,15 @@
 import { styled } from "styled-components";
-import { Box } from "../../atoms/common/Box";
+import { Box } from "../../atoms/common/box";
 
 export const OuterContainer = styled(Box)`
   height: 100dvh;
   width: 100dvw;
   background-size: cover;
-  background: url(${require(`../../assets/quiz-bg-mobile.svg`).default})
+  padding-top: 9rem;
+  background: url(${require(`../../assets/quiz/quiz-bg-mobile.svg`).default})
     no-repeat bottom;
   @media only screen and (min-width: 48rem) {
-    background: url(${require(`../../assets/quiz-bg.svg`).default}) no-repeat
-      bottom;
+    background: url(${require(`../../assets/quiz/quiz-bg.svg`).default})
+      no-repeat bottom;
   }
 `;

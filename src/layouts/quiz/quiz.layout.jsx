@@ -1,9 +1,10 @@
+import Questions from "../../components/quiz/questions/questions.component";
 import { OuterContainer } from "./quiz.style";
 
 const Quiz = () => {
   return (
     <OuterContainer>
-      <p>quiz</p>
+      <Questions />
     </OuterContainer>
   );
 };
