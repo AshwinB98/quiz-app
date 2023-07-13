@@ -3,7 +3,7 @@ import { Box, Flexbox } from "../../../atoms/common/box";
 
 export const QuestionsContainer = styled(Box)`
   height: 100%;
-  width: 100dvw;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;

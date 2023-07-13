@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../../atoms/common/button";
 import Choice from "../../../atoms/quiz/choice";
 import ProgressBar from "../../../atoms/quiz/progressBar";
+import { BtnContainer } from "../../../layouts/result/result.style";
 import { QUIZ } from "../../../mock-data";
 import {
   ChoicesContainer,
@@ -51,9 +52,15 @@ const Questions = () => {
             />
           ))}
         </ChoicesContainer>
-        <Button disabled={!isChoiceSelected} onClick={handleNextQuestion}>
-          {currentQuestion === QUIZ.length - 1 ? "Finish" : "Next"}
-        </Button>
+        <BtnContainer>
+          <Button
+            type={"button"}
+            disabled={!isChoiceSelected}
+            onClick={handleNextQuestion}
+          >
+            {currentQuestion === QUIZ.length - 1 ? "Finish" : "Next"}
+          </Button>
+        </BtnContainer>
       </QuizContainer>
     </QuestionsContainer>
   );
