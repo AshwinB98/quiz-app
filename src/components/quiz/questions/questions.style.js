@@ -46,4 +46,20 @@ export const ChoicesContainer = styled(Flexbox)`
   row-gap: 1rem;
 `;
 
-export const ImageContainer = styled(Box)``;
+export const ImageContainer = styled(Box)`
+  height: 12.5rem;
+  margin-bottom: 1rem;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+`;
+
+export const Info = styled.p`
+  display: flex;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #ffa500;
+  font-weight: 500;
+`;

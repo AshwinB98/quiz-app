@@ -4,6 +4,7 @@ export const QUIZ = [
     question: "Who is the CEO of Tesla?",
     choice: ["Mark Zuck", "Elon Musk", "Bill Gates", "Robert Downey JR"],
     correctAnswer: "Elon Musk",
+    imgUrl: "redux-flow.png",
     multiAnswer: false,
   },
   {
@@ -11,7 +12,7 @@ export const QUIZ = [
     question: "Who found Microsoft?",
     choice: ["Mark Zuck", "Elon Musk", "Bill Gates", "Robert Downey JR"],
     correctAnswer: "Bill Gates",
-    multiAnswer: false,
+    multiAnswer: true,
   },
   {
     id: 3,
