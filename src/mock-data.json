@@ -1,0 +1,50 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "question": "Who created ReactJS?",
+      "choice": ["Jordan Mike", "Jordan Walke", "Tim Lee", "Jordan Lee"],
+      "correctAnswer": "Jordan Walke",
+      "multiAnswer": false
+    },
+    {
+      "id": 2,
+      "question": "What are the core principles of Redux?",
+      "choice": [
+        "Single source of truth",
+        "Read and write",
+        "Multiple source of truth",
+        "Read only"
+      ],
+      "correctAnswer": ["Single source of truth", "Read only"],
+      "multiAnswer": true
+    },
+    {
+      "id": 3,
+      "question": "In which language is React.js written?",
+      "choice": ["Python", "Javascript", "Java", "PHP"],
+      "correctAnswer": "Javascript",
+      "multiAnswer": false
+    },
+    {
+      "id": 4,
+      "question": "What are the features of React?",
+      "choice": [
+        "Virtual DOM manipulation",
+        "Bi-directional data flow",
+        "Real DOM manipulation",
+        "Unidirectional flow"
+      ],
+      "correctAnswer": ["Virtual DOM manipulation", "Unidirectional flow"],
+      "multiAnswer": true
+    },
+    {
+      "id": 5,
+      "question": "Which of the following makes stores available?",
+      "choice": ["Component", "Container", "Actions", "Provider"],
+      "imgUrl": "redux-flow.png",
+      "correctAnswer": "Actions",
+      "multiAnswer": false
+    }
+  ]
+}
