@@ -29,3 +29,8 @@ export const BtnContainer = styled(Flexbox)`
     }
   }
 `;
+
+export const ScoreMeterContainer = styled(Flexbox)`
+  align-items: center;
+  justify-content: center;
+`;
