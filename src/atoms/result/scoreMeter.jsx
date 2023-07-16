@@ -23,7 +23,7 @@ const StyledSpeedometer = styled(Speedometer)`
   .needle {
     transform: ${({ $angle }) => `rotate(${$angle}deg)`};
     transform-origin: 15.625rem 15.625rem;
-    transition: transform 5s ease-in-out;
+    transition: transform 3s ease-in-out;
   }
 `;
 

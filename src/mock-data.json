@@ -43,7 +43,7 @@
       "question": "Which of the following makes stores available?",
       "choice": ["Component", "Container", "Actions", "Provider"],
       "imgUrl": "redux-flow.png",
-      "correctAnswer": "Actions",
+      "correctAnswer": "Provider",
       "multiAnswer": false
     }
   ]
