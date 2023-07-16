@@ -8,10 +8,14 @@ export const HomeContainer = styled(Flexbox)`
   background: url(${require(`../../assets/home/home-bg.svg`).default}) no-repeat
     bottom;
   background-size: cover;
+  @media only screen and (min-width: 48rem) {
+    justify-content: center;
+    align-items: center;
+  }
   flex-wrap: wrap;
 `;
 
-export const RightContainer = styled(Flexbox)`
+export const ContentContainer = styled(Flexbox)`
   flex-direction: column;
   justify-content: space-between;
 
@@ -26,33 +30,17 @@ export const RightContainer = styled(Flexbox)`
   }
   @media only screen and (min-width: 48rem) {
     width: 50%;
+    height: 43.75rem;
+    width: 31.25rem;
     background-image: linear-gradient(
-      to right,
+      to bottom,
       rgba(255, 0, 0, 0),
       rgba(255, 255, 255, 0.6)
     );
-    border-bottom-left-radius: 1.5rem;
+    box-shadow: 0 0 2.5rem 0 #686a6d;
+    border-radius: 1rem;
     svg {
       width: 16rem;
-    }
-  }
-`;
-export const LeftContainer = styled(Flexbox)`
-  display: none;
-  @media only screen and (min-width: 48rem) {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center;
-    /* background-color: white; */
-    padding-left: 2rem;
-    h1 {
-      color: rgb(255, 117, 4);
-      font-size: 5rem;
-    }
-    h2 {
-      font-size: 2.6rem;
-      color: #898b8e;
     }
   }
 `;
