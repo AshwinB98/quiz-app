@@ -59,7 +59,7 @@ const Questions = () => {
     if (isMultiChoice) {
       if (
         choiceSelected.length !==
-        questions[currentQuestion].correctAnswer.length
+        questions[currentQuestion]?.correctAnswer.length
       ) {
         result = {
           ...result,
@@ -68,7 +68,7 @@ const Questions = () => {
       } else {
         const sortedChoice = [...choiceSelected].sort();
         const sortedCorrectAnswer = [
-          ...questions[currentQuestion].correctAnswer,
+          ...questions[currentQuestion]?.correctAnswer,
         ].sort();
         const isAnswerCorrect = (sortedChoice || []).every(
           (choice, idx) => choice === sortedCorrectAnswer[idx]
@@ -80,7 +80,7 @@ const Questions = () => {
       }
     } else {
       const isAnswerCorrect =
-        choiceSelected[0] === questions[currentQuestion].correctAnswer;
+        choiceSelected[0] === questions[currentQuestion]?.correctAnswer;
       result = {
         ...result,
         isAnswerCorrect,
