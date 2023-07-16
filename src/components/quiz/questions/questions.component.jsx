@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchQuiz } from "../../../api/quiz/quizApi";
+import { postResult } from "../../../api/quiz/resultsApi";
 import { ReactComponent as InfoIcon } from "../../../assets/common/info-icon.svg";
 import Button from "../../../atoms/common/button";
 import Spinner from "../../../atoms/common/spinner";
@@ -87,6 +88,7 @@ const Questions = () => {
       };
     }
     setResults((prev) => [...prev, result]);
+    dispatch(postResult([...results, result]));
     setTimer(0);
     if (isLastQuestion) {
       return navigate("/result");
