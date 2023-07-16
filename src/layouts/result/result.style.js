@@ -7,6 +7,9 @@ export const ResultContainer = styled(QuestionsContainer)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media only screen and (min-width: 48rem) {
+    box-shadow: 0 12px 12px 0 #abacae;
+  }
 `;
 
 export const TitleContainer = styled(Box)`

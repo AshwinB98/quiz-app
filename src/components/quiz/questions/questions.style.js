@@ -8,6 +8,9 @@ export const QuestionsContainer = styled(Box)`
   border-top-right-radius: 2rem;
   border-top-left-radius: 2rem;
   padding: 1.875rem;
+  @media only screen and (min-width: 48rem) {
+    box-shadow: 0 12px 12px 0 #abacae;
+  }
 `;
 
 export const QuizContainer = styled(Flexbox)`

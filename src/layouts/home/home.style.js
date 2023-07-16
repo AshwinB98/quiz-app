@@ -37,7 +37,7 @@ export const ContentContainer = styled(Flexbox)`
       rgba(255, 0, 0, 0),
       rgba(255, 255, 255, 0.6)
     );
-    box-shadow: 0 0 2.5rem 0 #686a6d;
+    box-shadow: 0 -0.125rem 0.5rem 0 #abacae;
     border-radius: 1rem;
     svg {
       width: 16rem;
