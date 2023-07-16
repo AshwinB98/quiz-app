@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchQuiz = createAsyncThunk(
   "fetch/quiz",
-  async (limit, thunkApi) => {
+  async (payload, thunkApi) => {
     const response = await fetch(
       `${process.env.REACT_APP_API_BASE_URL}/questions`
     );

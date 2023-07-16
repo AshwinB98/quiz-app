@@ -16,10 +16,9 @@ export const postResult = createAsyncThunk(
     const responseData = await response.json();
     if (response.status !== 200) {
       return thunkApi.rejectWithValue({
-        message: "Something went wrong.",
+        message: "Something went wrong. Please try again later.",
       });
     }
-    console.log(responseData);
     return responseData["resultData"];
   }
 );

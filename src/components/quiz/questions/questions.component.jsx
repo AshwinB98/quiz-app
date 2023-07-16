@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { fetchQuiz } from "../../../api/quiz/quizApi";
 import { postResult } from "../../../api/quiz/resultsApi";
 import { ReactComponent as InfoIcon } from "../../../assets/common/info-icon.svg";
@@ -11,8 +12,13 @@ import ProgressBar from "../../../atoms/quiz/progressBar";
 import { BtnContainer } from "../../../layouts/result/result.style";
 import {
   selectAllQuestions,
+  selectQuestionsError,
   selectQuestionsIsLoading,
 } from "../../../store/quiz/quiz.selector";
+import {
+  selectResultError,
+  selectResultLoading,
+} from "../../../store/result/result.selector";
 import {
   ChoicesContainer,
   ImageContainer,
@@ -32,10 +38,18 @@ const Questions = () => {
   const [choiceSelected, setChoiceSelected] = useState([]);
   const [timer, setTimer] = useState(0);
   const [results, setResults] = useState([]);
+  const questionError = useSelector(selectQuestionsError);
+  const resultLoading = useSelector(selectResultLoading);
+  const resultError = useSelector(selectResultError);
 
   useEffect(() => {
+    if (questionError) return toast(questionError);
     dispatch(fetchQuiz());
-  }, [dispatch]);
+  }, [dispatch, questionError]);
+
+  const isLastQuestion = useMemo(() => {
+    return currentQuestion === questions.length - 1;
+  }, [currentQuestion, questions]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -45,10 +59,6 @@ const Questions = () => {
       clearInterval(interval);
     };
   }, [currentQuestion]);
-
-  const isLastQuestion = useMemo(() => {
-    return currentQuestion === questions.length - 1;
-  }, [currentQuestion, questions]);
 
   const handleNextQuestion = () => {
     const isMultiChoice = questions[currentQuestion]?.multiAnswer;
@@ -88,13 +98,16 @@ const Questions = () => {
       };
     }
     setResults((prev) => [...prev, result]);
-    dispatch(postResult([...results, result]));
     setTimer(0);
-    if (isLastQuestion) {
-      return navigate("/result");
+    if (!resultLoading) {
+      if (resultError) return toast(resultError);
+      dispatch(postResult([...results, result]));
+      if (isLastQuestion) {
+        return navigate("/result");
+      }
+      setCurrentQuestion((prev) => prev + 1);
+      setChoiceSelected("");
     }
-    setCurrentQuestion((prev) => prev + 1);
-    setChoiceSelected("");
   };
 
   const handleChoiceSelect = (choice, isMultiChoice) => {
@@ -111,6 +124,7 @@ const Questions = () => {
       setChoiceSelected([choice]);
     }
   };
+
   return (
     <QuestionsContainer>
       {isQuestionsLoading ? (
