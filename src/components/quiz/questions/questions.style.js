@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Box, Flexbox } from "../../../atoms/common/box";
+import { Box, Flexbox } from "../../../atoms/common/Box";
 
 export const QuestionsContainer = styled(Box)`
   height: 100%;

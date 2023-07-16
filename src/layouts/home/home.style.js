@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Flexbox } from "../../atoms/common/box";
+import { Flexbox } from "../../atoms/common/Box";
 import { StyledButton } from "../../atoms/common/button";
 
 export const HomeContainer = styled(Flexbox)`

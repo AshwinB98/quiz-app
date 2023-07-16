@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Box, Flexbox } from "../../atoms/common/box";
+import { Box, Flexbox } from "../../atoms/common/Box";
 import { StyledButton } from "../../atoms/common/button";
 import { QuestionsContainer } from "../../components/quiz/questions/questions.style";
 

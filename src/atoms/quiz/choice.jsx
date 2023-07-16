@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { ReactComponent as Checkmark } from "../../assets/common/check-outline.svg";
-import { Flexbox } from "../common/box";
+import { Flexbox } from "../common/Box";
 
 const Choice = ({ choice, isSelected, onClick }) => {
   return (

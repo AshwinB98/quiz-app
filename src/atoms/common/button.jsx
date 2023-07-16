@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import { ReactComponent as RightArrow } from "../../assets/common/double-arrow-right.svg";
-import { Box, Flexbox } from "./box";
+import { Box, Flexbox } from "./Box";
 
 const Button = ({
   children,

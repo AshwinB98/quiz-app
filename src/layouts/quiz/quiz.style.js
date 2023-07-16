@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Box } from "../../atoms/common/box";
+import { Box } from "../../atoms/common/Box";
 
 export const OuterContainer = styled(Box)`
   height: 100dvh;

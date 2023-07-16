@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Flexbox } from "../../../atoms/common/box";
+import { Flexbox } from "../../../atoms/common/Box";
 
 export const TitleContainer = styled(Flexbox)`
   color: rgb(255, 117, 4);

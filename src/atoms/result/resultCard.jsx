@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { ReactComponent as Checkmark } from "../../assets/common/check-outline.svg";
 import { ReactComponent as ClearIcon } from "../../assets/common/clear-outline.svg";
-import { Flexbox } from "../common/box";
+import { Flexbox } from "../common/Box";
 
 const ResultCard = ({ isCorrect, count }) => {
   return (
