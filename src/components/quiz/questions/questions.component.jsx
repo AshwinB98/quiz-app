@@ -27,38 +27,86 @@ const Questions = () => {
   const dispatch = useDispatch();
   const isQuestionsLoading = useSelector(selectQuestionsIsLoading);
   const questions = useSelector(selectAllQuestions);
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [isChoiceSelected, setIsChoiceSelected] = useState([]);
+  const [choiceSelected, setChoiceSelected] = useState([]);
+  const [timer, setTimer] = useState(0);
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     dispatch(fetchQuiz());
   }, [dispatch]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer((prev) => prev + 1000);
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentQuestion]);
 
   const isLastQuestion = useMemo(() => {
     return currentQuestion === questions.length - 1;
   }, [currentQuestion, questions]);
 
   const handleNextQuestion = () => {
+    const isMultiChoice = questions[currentQuestion]?.multiAnswer;
+    let result = {
+      id: questions[currentQuestion]?.id,
+      correctAnswer: questions[currentQuestion]?.correctAnswer,
+      timer: timer,
+    };
+    if (isMultiChoice) {
+      if (
+        choiceSelected.length !==
+        questions[currentQuestion].correctAnswer.length
+      ) {
+        result = {
+          ...result,
+          isAnswerCorrect: false,
+        };
+      } else {
+        const sortedChoice = [...choiceSelected].sort();
+        const sortedCorrectAnswer = [
+          ...questions[currentQuestion].correctAnswer,
+        ].sort();
+        const isAnswerCorrect = (sortedChoice || []).every(
+          (choice, idx) => choice === sortedCorrectAnswer[idx]
+        );
+        result = {
+          ...result,
+          isAnswerCorrect,
+        };
+      }
+    } else {
+      const isAnswerCorrect =
+        choiceSelected[0] === questions[currentQuestion].correctAnswer;
+      result = {
+        ...result,
+        isAnswerCorrect,
+      };
+    }
+    setResults((prev) => [...prev, result]);
+    setTimer(0);
     if (isLastQuestion) {
       return navigate("/result");
     }
     setCurrentQuestion((prev) => prev + 1);
-    setIsChoiceSelected("");
+    setChoiceSelected("");
   };
 
   const handleChoiceSelect = (choice, isMultiChoice) => {
     if (isMultiChoice) {
-      if (isChoiceSelected.includes(choice)) {
-        const filteredChoice = (isChoiceSelected || []).filter(
+      if (choiceSelected.includes(choice)) {
+        const filteredChoice = (choiceSelected || []).filter(
           (val) => val !== choice
         );
-        setIsChoiceSelected(filteredChoice);
+        setChoiceSelected(filteredChoice);
       } else {
-        setIsChoiceSelected((prev) => [...prev, choice]);
+        setChoiceSelected((prev) => [...prev, choice]);
       }
     } else {
-      setIsChoiceSelected([choice]);
+      setChoiceSelected([choice]);
     }
   };
   return (
@@ -89,9 +137,9 @@ const Questions = () => {
             <ChoicesContainer>
               {(questions[currentQuestion] || [])?.choice?.map((value, idx) => (
                 <Choice
-                  key={idx}
+                  key={idx + 100}
                   choice={value}
-                  isSelected={isChoiceSelected.includes(value)}
+                  isSelected={choiceSelected.includes(value)}
                   onClick={() =>
                     handleChoiceSelect(
                       value,
@@ -110,7 +158,7 @@ const Questions = () => {
             <BtnContainer>
               <Button
                 type={"button"}
-                disabled={isChoiceSelected.length === 0}
+                disabled={choiceSelected.length === 0}
                 onClick={handleNextQuestion}
                 hasIcon={!isLastQuestion}
               >
