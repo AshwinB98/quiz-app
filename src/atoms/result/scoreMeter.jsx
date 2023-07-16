@@ -1,16 +1,7 @@
 import { useMemo } from "react";
 import { styled } from "styled-components";
 import { ReactComponent as Speedometer } from "../../assets/result/speedometer.svg";
-
-const getScoreByPercent = (score, totalScore) => {
-  return (score / totalScore) * 100;
-};
-
-const getAngleUsingScore = (score, totalScore) => {
-  const scorePercent = getScoreByPercent(score, totalScore);
-  const scorePercentByDeg = (scorePercent / 50) * 90;
-  return -90 + scorePercentByDeg;
-};
+import { getAngleUsingScore, getScoreByPercent } from "../../utils/util";
 
 const ScoreMeter = ({ score, totalScore }) => {
   const scorePercentage = useMemo(() => {
