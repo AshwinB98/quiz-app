@@ -7,12 +7,12 @@ export const selectAllResults = createSelector(
   (data) => data.result
 );
 
-export const isResultLoading = createSelector(
+export const selectResultLoading = createSelector(
   [resultReducer],
   (data) => data.isLoading
 );
 
-export const resultError = createSelector(
+export const selectResultError = createSelector(
   [resultReducer],
   (data) => data.error
 );

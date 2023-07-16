@@ -10,7 +10,11 @@ const RESULT_INITIAL_STATE = {
 const resultSlice = createSlice({
   name: "result",
   initialState: RESULT_INITIAL_STATE,
-  reducers: {},
+  reducers: {
+    clearResults: (state) => {
+      state.result = [];
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(postResult.pending, (state) => {
       state.isLoading = true;
@@ -25,5 +29,7 @@ const resultSlice = createSlice({
     });
   },
 });
+
+export const { clearResults } = resultSlice.actions;
 
 export const resultReducer = resultSlice.reducer;

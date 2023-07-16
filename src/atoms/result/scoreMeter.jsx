@@ -13,8 +13,12 @@ const ScoreMeter = ({ score, totalScore }) => {
 
   return (
     <>
-      <StyledSpeedometer $angle={angle} height={"14rem"} width={"14rem"} />
-      <ScorePercent>{`${scorePercentage}%`}</ScorePercent>
+      <StyledSpeedometer
+        $angle={angle || -90}
+        height={"14rem"}
+        width={"14rem"}
+      />
+      <ScorePercent>{`${scorePercentage || 0}%`}</ScorePercent>
     </>
   );
 };
